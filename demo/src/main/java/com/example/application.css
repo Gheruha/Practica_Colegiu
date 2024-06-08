@@ -1,0 +1,23 @@
+#getStartedButton {
+    -fx-background-color: #3b82f6;
+}
+
+#getStartedButton:hover {
+    -fx-background-color: #60a5fa;
+}
+
+#menuBtn {
+    -fx-background-color: #18181b;
+}
+
+#menuBtn:hover {
+    -fx-background-color: #3f3f46;
+}
+
+.label {
+    -fx-font-color: white;
+}
+
+.anchorpane {
+    -fx-background-color: #60a5fa;
+}
