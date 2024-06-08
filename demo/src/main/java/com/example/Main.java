@@ -11,6 +11,8 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    private Db databaseObj = new Db();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -23,6 +25,9 @@ public class Main extends Application {
 
         // Stage costumization
         stage.setTitle("Asig Management App");
+
+        // Get the connection with the database
+        databaseObj.getConnection();
 
         stage.setScene(scene);
         stage.show();
