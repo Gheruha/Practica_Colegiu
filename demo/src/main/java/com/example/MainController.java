@@ -17,7 +17,8 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
-    public void switchToAgenti(ActionEvent event) throws IOException {
+    // Swith to the app page
+    public void switchToApp(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("app.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

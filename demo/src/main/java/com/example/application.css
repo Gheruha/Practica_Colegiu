@@ -1,3 +1,4 @@
+/* Buttons */
 #getStartedButton {
     -fx-background-color: #3b82f6;
 }
@@ -6,13 +7,32 @@
     -fx-background-color: #60a5fa;
 }
 
-#menuBtn {
+.button {
     -fx-background-color: #18181b;
 }
 
-#menuBtn:hover {
+.button:hover {
     -fx-background-color: #3f3f46;
 }
+
+/* Buttons */
+
+/* List View */
+.list-view .list-cell:even {
+    -fx-background-color: #27272a;
+    -fx-text-fill: white;
+}
+
+.list-view {
+    -fx-font-size: 18px
+}
+
+.list-view .list-cell:odd {
+    -fx-background-color: #18181b;
+    -fx-text-fill: white;
+}
+
+/* List View */
 
 .label {
     -fx-font-color: white;
@@ -20,4 +40,8 @@
 
 .anchorpane {
     -fx-background-color: #60a5fa;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-background-color: #6f6f77;
 }

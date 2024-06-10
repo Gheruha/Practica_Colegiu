@@ -13,7 +13,7 @@
       <Cursor fx:constant="DEFAULT" />
    </cursor>
    <children>
-      <Button fx:id="getStartedButton" alignment="CENTER" contentDisplay="CENTER" layoutX="707.0" layoutY="662.0" mnemonicParsing="false" onAction="#switchToAgenti" prefHeight="40.0" prefWidth="120.0" text="Get Started" textFill="WHITE">
+      <Button fx:id="getStartedButton" alignment="CENTER" contentDisplay="CENTER" layoutX="707.0" layoutY="662.0" mnemonicParsing="false" onAction="#switchToApp" prefHeight="40.0" prefWidth="120.0" text="Get Started" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
