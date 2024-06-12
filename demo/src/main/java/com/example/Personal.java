@@ -2,6 +2,7 @@ package com.example;
 
 public class Personal {
     private int id, id_filiala;
+
     private String nume, prenume, idnp, oras, telefon;
 
     // Constructor with parameters
@@ -60,5 +61,13 @@ public class Personal {
     public String toString() {
         return "ID:" + id + ",   Nume: " + nume + " " + prenume + ",    IDNP: " + idnp
                 + ",    Oras: " + oras + ",    Telefon" + ",    Filiala: " + id_filiala;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

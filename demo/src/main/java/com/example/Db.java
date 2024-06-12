@@ -39,12 +39,13 @@ public class Db {
     }
 
     // Inserting Data in the existing tables
-    public void insertData() {
-        String query = "";
+    public void deleteData(int id) {
+        String query = "delete from personal1 where id = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
             statement.executeUpdate();
-            logger.info("The data is inserted ✅");
+            logger.info("The data is Deleted ✅");
         } catch (SQLException e) {
             logger.info(e.toString());
         }

@@ -15,6 +15,23 @@
     -fx-background-color: #3f3f46;
 }
 
+#addPersonalBtn {
+    -fx-background-color: #3b82f6;
+}
+
+#addPersonalBtn:hover {
+    -fx-background-color: #60a5fa;
+}
+
+#deletePersonalBtn {
+    -fx-background-color: #ef4444
+}
+
+#deletePersonalBtn:hover {
+    -fx-background-color: #f87171
+}
+
+
 /* Buttons */
 
 /* List View */
@@ -32,6 +49,22 @@
     -fx-text-fill: white;
 }
 
+.list-view .list-cell:focused {
+    -fx-background-color: #3b82f6;
+}
+
+.list-view .scroll-bar {
+    -fx-color: #18181b;
+}
+
+.list-view .scroll-bar .thumb {
+    -fx-background-color: #18181b;
+}
+
+.list-view .scroll-bar .track {
+    -fx-background-color: #27272a;
+}
+
 /* List View */
 
 .label {
@@ -43,5 +76,12 @@
 }
 
 .split-pane *.split-pane-divider {
-    -fx-background-color: #6f6f77;
+    -fx-background-color: #27272a;
+}
+
+
+/* Text Field */
+.text-field {
+    -fx-background-color: #27272a;
+    -fx-text-fill: white;
 }

@@ -12,22 +12,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class SceneController implements Initializable {
-
+    @FXML
+    Stage stage = new Stage();
     @FXML
     BorderPane borderPane = new BorderPane();
     @FXML
     ListView<Filiale> listView = new ListView<>();
     @FXML
     ListView<Personal> personalListView = new ListView<>();
+    @FXML
     Db db = new Db();
     @FXML
-    Button filialeBtn, personalBtn, clientiBtn, infoBtn;
+    Button filialeBtn, personalBtn, clientiBtn, infoBtn, addPersonalBtn, enterPersonalBtn;
     @FXML
     private List<Button> buttons = new ArrayList<>();
+    @FXML
+    TextField nume;
 
     // Navigate between scenes
     @FXML
@@ -74,12 +80,9 @@ public class SceneController implements Initializable {
     @FXML
     public void refresh() {
         List<Filiale> filiale = db.readDataFiliale();
-        List<Personal> personal = db.readDataPersonal();
 
         listView.getItems().clear();
         listView.getItems().addAll(filiale);
-        personalListView.getItems().clear();
-        personalListView.getItems().addAll(personal);
     }
 
     // Initialize the necesarry stuff
@@ -92,5 +95,4 @@ public class SceneController implements Initializable {
 
         refresh();
     }
-
 }
