@@ -60,7 +60,7 @@ public class Personal {
     // ToString
     public String toString() {
         return "ID:" + id + ",   Nume: " + nume + " " + prenume + ",    IDNP: " + idnp
-                + ",    Oras: " + oras + ",    Telefon" + ",    Filiala: " + id_filiala;
+                + ",    Oras: " + oras + ",    Telefon: " + telefon + ",    Filiala: " + id_filiala;
     }
 
     public int getId() {

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="addPersonal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PersonalController">
+<AnchorPane fx:id="addPersonalStage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #09090b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PersonalController">
    <children>
       <Label layoutX="100.0" layoutY="200.0" text="Prenume:" textFill="WHITE">
          <font>
@@ -43,7 +43,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="idnp1" layoutX="100.0" layoutY="430.0" prefWidth="400.0">
+      <TextField fx:id="oras" layoutX="100.0" layoutY="430.0" prefWidth="400.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -53,7 +53,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="idnp11" layoutX="100.0" layoutY="530.0" prefWidth="400.0">
+      <TextField fx:id="telefon" layoutX="100.0" layoutY="530.0" prefWidth="400.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -63,7 +63,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="idnp111" layoutX="100.0" layoutY="630.0" prefWidth="400.0">
+      <TextField fx:id="idFiliala" layoutX="100.0" layoutY="630.0" prefWidth="400.0">
          <font>
             <Font size="18.0" />
          </font>

@@ -26,13 +26,26 @@ public class Db {
         }
     }
 
+    // Closing the connection
+    public void closeConnection() throws SQLException {
+        if (connection != null || !connection.isClosed()) {
+            connection.close();
+        }
+    }
+
     // Creating , deleting tables
-    public void createTable() {
-        String query = "drop table personal";
+    public void insertPersonal(Object... parameters) {
+        getConnection();
+        String query = "insert into personal1(nume, prenume, idnp , oras , telefon , id_filiala) values(? , ? , ? , ? , ? , ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query);) {
+            for (int i = 0; i < parameters.length; i++) {
+                statement.setObject(i + 1, parameters[i]);
+            }
             statement.executeUpdate();
-            logger.info("Table created ✅");
+            logger.info("Data inserted in personal table ✅");
+
+            closeConnection();
         } catch (SQLException e) {
             logger.info(e.toString());
         }

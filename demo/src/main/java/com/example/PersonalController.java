@@ -20,7 +20,7 @@ public class PersonalController implements Initializable {
     @FXML
     ListView<Personal> personalListView = new ListView<>();
     @FXML
-    TextField nume;
+    TextField nume, prenume, idnp, oras, telefon, idFiliala;
     @FXML
     Db db = new Db();
     @FXML
@@ -39,9 +39,15 @@ public class PersonalController implements Initializable {
 
     @FXML
     public void enterPersonal(ActionEvent event) {
-        newStage.close();
         String numeStr = nume.getText();
-        System.out.println(numeStr);
+        String prenumeStr = prenume.getText();
+        String idnpStr = idnp.getText();
+        String orasStr = oras.getText();
+        String telefonStr = telefon.getText();
+        int filiala = Integer.parseInt(idFiliala.getText());
+
+        db.insertPersonal(numeStr, prenumeStr, idnpStr, orasStr, telefonStr, filiala);
+        refresh();
     }
 
     @FXML
