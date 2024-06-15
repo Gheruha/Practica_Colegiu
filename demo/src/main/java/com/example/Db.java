@@ -13,6 +13,7 @@ public class Db {
 
     private Connection connection;
     private Logger logger = Logger.getLogger(this.getClass().getName());
+    List<Personal> personal = new ArrayList<>();
 
     // Getting the connection with the Sqlite
     public void getConnection() {
@@ -36,7 +37,7 @@ public class Db {
     // Creating , deleting tables
     public void insertPersonal(Object... parameters) {
         getConnection();
-        String query = "insert into personal1(nume, prenume, idnp , oras , telefon , id_filiala) values(? , ? , ? , ? , ? , ?)";
+        String query = "insert into personal1(nume , prenume , idnp , oras , telefon , id_filiala) values(? , ? , ? , ? , ? , ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query);) {
             for (int i = 0; i < parameters.length; i++) {
@@ -45,7 +46,6 @@ public class Db {
             statement.executeUpdate();
             logger.info("Data inserted in personal table ✅");
 
-            closeConnection();
         } catch (SQLException e) {
             logger.info(e.toString());
         }
@@ -89,14 +89,12 @@ public class Db {
     }
 
     // Read data from personal table and returnig list <personal>
-    public List<Personal> readDataPersonal() {
+    public List<Personal> readDataPersonal() throws SQLException {
         getConnection();
-
-        List<Personal> personal = new ArrayList<>();
-        String query = "select * from personal1";
+        String query = "select * from personal1 order by nume , prenume";
         try (PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet result = statement.executeQuery()) {
-
+            personal.clear();
             while (result.next()) {
                 int id = result.getInt("id");
                 String nume = result.getString("nume");
@@ -108,12 +106,36 @@ public class Db {
 
                 personal.add(new Personal(id, id_filiala, nume, prenume, idnp, oras, telefon));
             }
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             logger.info(e.toString());
         }
 
+        return personal;
+    }
+
+    // Sort data personal by the name and surname
+    public List<Personal> sortDataPersonal() {
+        getConnection();
+        String query = "select * from personal1 order by nume , prenume";
+
+        try (PreparedStatement statement = connection.prepareStatement(query);
+                ResultSet result = statement.executeQuery()) {
+            personal.clear();
+            while (result.next()) {
+                int id = result.getInt("id");
+                String nume = result.getString("nume");
+                String prenume = result.getString("prenume");
+                String idnp = result.getString("idnp");
+                String oras = result.getString("oras");
+                String telefon = result.getString("telefon");
+                int id_filiala = result.getInt("id_filiala");
+
+                personal.add(new Personal(id, id_filiala, nume, prenume, idnp, oras, telefon));
+            }
+
+        } catch (SQLException e) {
+            logger.info(e.toString());
+        }
         return personal;
     }
 }

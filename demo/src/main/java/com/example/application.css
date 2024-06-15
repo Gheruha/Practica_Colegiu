@@ -82,19 +82,19 @@
 
 /* Text Field */
 .text-field {
-    -fx-background-color: #27272a;
+    -fx-background-color: #18181b;
     -fx-text-fill: white;
 }
 
 /***** Scroll Bar Customization in Dark Mode *****/
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track {
-    -fx-background-color: #333;
+    -fx-background-color: #444;
 }
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-    -fx-background-color: #555;
+    -fx-background-color: #444;
     -fx-background-radius: 5px;
 }
 
@@ -118,14 +118,14 @@
 .scroll-bar:horizontal .decrement-button:hover,
 .scroll-bar:vertical .increment-button:hover,
 .scroll-bar:vertical .decrement-button:hover {
-    -fx-background-color: #666;
+    -fx-background-color: #444;
 }
 
 .scroll-bar:horizontal .increment-arrow,
 .scroll-bar:horizontal .decrement-arrow,
 .scroll-bar:vertical .increment-arrow,
 .scroll-bar:vertical .decrement-arrow {
-    -fx-background-color: #999;
+    -fx-background-color: #444;
 }
 
 /***** Scroll Bar Customization in Dark Mode *****/
