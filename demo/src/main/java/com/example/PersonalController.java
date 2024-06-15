@@ -1,6 +1,5 @@
 package com.example;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,11 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class PersonalController implements Initializable {
@@ -32,22 +27,13 @@ public class PersonalController implements Initializable {
     Button deletePersonalBtn;
 
     @FXML
-    public void openAddPersonal(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("addPersonal.fxml"));
-        Scene scene = new Scene(root, 600, 800, Color.DARKGREY);
-        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-        newStage.setScene(scene);
-        newStage.setTitle("Add Personal Form");
-        newStage.setResizable(false);
-        newStage.show();
-    }
-
-    @FXML
     public void enterPersonal(ActionEvent event) throws SQLException {
+        String query = "insert into personal1(nume , prenume , idnp , oras , telefon , id_filiala) values(? , ? , ? , ? , ? , ?)";
         boolean validation = true;
         if (nume.getText().trim().isEmpty() || prenume.getText().trim().isEmpty()
-                || prenume.getText().trim().isEmpty() || idnp.getText().trim().isEmpty()
-                || oras.getText().trim().isEmpty() || idFiliala.getText().trim().isEmpty()) {
+                || idnp.getText().trim().isEmpty()
+                || oras.getText().trim().isEmpty() || idFiliala.getText().trim().isEmpty()
+                || telefon.getText().trim().isEmpty()) {
             showAlert("Eroare Validare", "Te rog sa umpli toate campurile.");
         } else {
             String numeStr = nume.getText();
@@ -62,6 +48,7 @@ public class PersonalController implements Initializable {
                 validation = false;
                 idnp.setStyle("-fx-border-color: #ef4444");
                 showAlert("Eroare Validare", "Idnp-ul trebuie sa contina 13 cifre.");
+                idnp.clear();
             } else {
                 idnp.setStyle("");
             }
@@ -69,6 +56,7 @@ public class PersonalController implements Initializable {
                 validation = false;
                 telefon.setStyle("-fx-border-color: #ef4444");
                 showAlert("Eroare Validare", "Formatul telefonului trebuie sa fie: xxx-xx-xxxx.");
+                telefon.clear();
             } else {
                 telefon.setStyle("");
             }
@@ -76,30 +64,29 @@ public class PersonalController implements Initializable {
                 validation = false;
                 idFiliala.setStyle("-fx-border-color: #ef4444");
                 showAlert("Eroare Validare", "ID-ul trebuie sa contina doar numere.");
+                idFiliala.clear();
             } else {
-
                 idFiliala.setStyle("");
             }
-
-            // Clear the text inputs
-            nume.clear();
-            prenume.clear();
-            idnp.clear();
-            oras.clear();
-            telefon.clear();
-            idFiliala.clear();
 
             // Inserting the data in the database & refreshing
             if (validation) {
                 int idF = Integer.parseInt(filiala);
-                db.insertPersonal(numeStr, prenumeStr, idnpStr, orasStr, telefonStr, idF);
+                db.insertData(query, numeStr, prenumeStr, idnpStr, orasStr, telefonStr, idF);
+                // Clear the text inputs
+                nume.clear();
+                prenume.clear();
+                idnp.clear();
+                oras.clear();
+                telefon.clear();
+                idFiliala.clear();
             }
             refresh();
         }
 
     }
 
-    private void showAlert(String title, String message) {
+    public void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText("");
@@ -109,8 +96,9 @@ public class PersonalController implements Initializable {
 
     @FXML
     public void deleteDataPersonal(ActionEvent event) throws SQLException {
+        String query = "delete from personal1 where id = ?";
         if (personalListView.getSelectionModel().getSelectedItem() != null) {
-            db.deleteData(personalListView.getSelectionModel().getSelectedItem().getId());
+            db.deleteData(query, personalListView.getSelectionModel().getSelectedItem().getId());
             refresh();
         }
     }
@@ -118,7 +106,6 @@ public class PersonalController implements Initializable {
     @FXML
     public void refresh() throws SQLException {
         List<Personal> personal = db.readDataPersonal();
-        System.out.println("Refreshing ...");
         personalListView.getItems().clear();
         personalListView.getItems().addAll(personal);
     }

@@ -14,6 +14,7 @@ public class Db {
     private Connection connection;
     private Logger logger = Logger.getLogger(this.getClass().getName());
     List<Personal> personal = new ArrayList<>();
+    List<Clienti> clienti = new ArrayList<>();
 
     // Getting the connection with the Sqlite
     public void getConnection() {
@@ -34,10 +35,9 @@ public class Db {
         }
     }
 
-    // Creating , deleting tables
-    public void insertPersonal(Object... parameters) {
+    // Insert data in the personal table
+    public void insertData(String query, Object... parameters) {
         getConnection();
-        String query = "insert into personal1(nume , prenume , idnp , oras , telefon , id_filiala) values(? , ? , ? , ? , ? , ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query);) {
             for (int i = 0; i < parameters.length; i++) {
@@ -52,8 +52,7 @@ public class Db {
     }
 
     // Inserting Data in the existing tables
-    public void deleteData(int id) {
-        String query = "delete from personal1 where id = ?";
+    public void deleteData(String query, int id) {
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, id);
@@ -113,14 +112,13 @@ public class Db {
         return personal;
     }
 
-    // Sort data personal by the name and surname
-    public List<Personal> sortDataPersonal() {
+    // Read data from clienti table and returnig list <clienti>
+    public List<Clienti> readDataClienti() throws SQLException {
         getConnection();
-        String query = "select * from personal1 order by nume , prenume";
-
+        String query = "select * from clienti order by nume , prenume";
         try (PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet result = statement.executeQuery()) {
-            personal.clear();
+            clienti.clear();
             while (result.next()) {
                 int id = result.getInt("id");
                 String nume = result.getString("nume");
@@ -128,14 +126,14 @@ public class Db {
                 String idnp = result.getString("idnp");
                 String oras = result.getString("oras");
                 String telefon = result.getString("telefon");
-                int id_filiala = result.getInt("id_filiala");
 
-                personal.add(new Personal(id, id_filiala, nume, prenume, idnp, oras, telefon));
+                clienti.add(new Clienti(id, nume, prenume, idnp, oras, telefon));
             }
-
         } catch (SQLException e) {
             logger.info(e.toString());
         }
-        return personal;
+
+        return clienti;
     }
+
 }

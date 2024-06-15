@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane fx:id="personalView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1000.0" style="-fx-background-color: #18181b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PersonalController">
    <children>
       <Label layoutX="35.0" layoutY="140.0" text="Personal " textFill="WHITE">
@@ -16,7 +17,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <SplitPane dividerPositions="0.6006375227686703" layoutX="35.0" layoutY="200.0" prefHeight="560.0" prefWidth="1100.0" style="-fx-background-color: #27272a;">
+      <SplitPane dividerPositions="0.60" layoutX="35.0" layoutY="200.0" prefHeight="560.0" prefWidth="1100.0" style="-fx-background-color: #27272a;">
         <items>
             <ListView fx:id="personalListView" prefHeight="213.0" prefWidth="227.0" style="-fx-background-color: #27272a;" />
             <BorderPane>
@@ -31,7 +32,8 @@
                         <Button fx:id="getStartedButton" layoutX="138.0" layoutY="515.0" mnemonicParsing="false" onAction="#enterPersonal" text="+ Adauga Personal" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
-                           </font></Button>
+                           </font>
+                        </Button>
                         <Label layoutX="70.0" layoutY="20.0" text="Nume:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
@@ -40,7 +42,8 @@
                         <TextField fx:id="prenume" layoutX="70.0" layoutY="130.0" prefWidth="300.0" promptText="exemplu. Paul">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                         <Label layoutX="70.0" layoutY="100.0" text="Prenume:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
@@ -49,7 +52,8 @@
                         <TextField fx:id="idnp" layoutX="70.0" layoutY="210.0" prefWidth="300.0" promptText="Cod format din 13 cifre">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                         <Label layoutX="70.0" layoutY="180.0" text="IDNP:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
@@ -58,7 +62,8 @@
                         <TextField fx:id="oras" layoutX="70.0" layoutY="290.0" prefWidth="300.0" promptText="exemplu. Chisinau">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                         <Label layoutX="70.0" layoutY="260.0" text="Oras:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
@@ -67,7 +72,8 @@
                         <TextField fx:id="telefon" layoutX="70.0" layoutY="370.0" prefWidth="300.0" promptText="exemplu. 373-12-4932">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                         <Label layoutX="70.0" layoutY="340.0" text="Telefon:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
@@ -76,7 +82,8 @@
                         <TextField fx:id="idFiliala" layoutX="70.0" layoutY="450.0" prefWidth="300.0" promptText="exemplu: 1">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                         <Label layoutX="70.0" layoutY="420.0" text="ID filiala:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
