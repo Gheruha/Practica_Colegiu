@@ -22,6 +22,7 @@ public class Db {
             if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection("jdbc:sqlite:practica.db");
                 logger.info("\n\nConnected to Database ✅");
+                createTable();
             }
         } catch (SQLException e) {
             logger.info(e.toString());
@@ -32,6 +33,17 @@ public class Db {
     public void closeConnection() throws SQLException {
         if (connection != null || !connection.isClosed()) {
             connection.close();
+        }
+    }
+
+    public void createTable() {
+        String query = "create table contracte(id integer primary key autoincrement , tip_contract text , client text , personal text , filiala integer , data_begin text , data_end text);";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+            System.out.println("The table contracte is created.");
+        } catch (SQLException e) {
+            logger.info(e.toString());
         }
     }
 

@@ -30,7 +30,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="infoBtn" layoutX="10.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToInfo" prefHeight="50.0" prefWidth="280.0" text="Informatii" textFill="WHITE">
+                  <Button fx:id="infoBtn" layoutX="10.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToInfo" prefHeight="50.0" prefWidth="280.0" text="Informatii" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -40,6 +40,11 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="contracteBtn" layoutX="10.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToContracte" prefHeight="50.0" prefWidth="280.0" text="Contracte" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </left>

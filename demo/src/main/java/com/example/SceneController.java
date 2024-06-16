@@ -29,7 +29,7 @@ public class SceneController implements Initializable {
     @FXML
     Db db = new Db();
     @FXML
-    Button filialeBtn, personalBtn, clientiBtn, infoBtn, addPersonalBtn, enterPersonalBtn;
+    Button filialeBtn, personalBtn, clientiBtn, infoBtn, addPersonalBtn, enterPersonalBtn, contracteBtn;
     @FXML
     private List<Button> buttons = new ArrayList<>();
     @FXML
@@ -54,6 +54,13 @@ public class SceneController implements Initializable {
     public void goToClienti(ActionEvent event) throws IOException {
         setButtonsColor(clientiBtn);
         AnchorPane view = FXMLLoader.load(getClass().getResource("clienti.fxml"));
+        borderPane.setCenter(view);
+    }
+
+    @FXML
+    public void goToContracte(ActionEvent event) throws IOException {
+        setButtonsColor(contracteBtn);
+        AnchorPane view = FXMLLoader.load(getClass().getResource("contracte.fxml"));
         borderPane.setCenter(view);
     }
 
@@ -91,6 +98,7 @@ public class SceneController implements Initializable {
         buttons.add(filialeBtn);
         buttons.add(personalBtn);
         buttons.add(clientiBtn);
+        buttons.add(contracteBtn);
         buttons.add(infoBtn);
 
         refresh();
