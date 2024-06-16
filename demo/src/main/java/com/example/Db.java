@@ -22,7 +22,6 @@ public class Db {
             if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection("jdbc:sqlite:practica.db");
                 logger.info("\n\nConnected to Database ✅");
-                createTable();
             }
         } catch (SQLException e) {
             logger.info(e.toString());
@@ -37,11 +36,10 @@ public class Db {
     }
 
     public void createTable() {
-        String query = "create table contracte(id integer primary key autoincrement , tip_contract text , client text , personal text , filiala integer , data_begin text , data_end text);";
+        String query = "insert into contracte(tip_contract , client , personal , filiala , data_begin , data_end) values ('Asigurarea imobilelor' ,'Corinna Brown' , 'Gheruha Maxim' , 1 , '2024-04-02' , '2024-06-02')";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.executeUpdate();
-            System.out.println("The table contracte is created.");
         } catch (SQLException e) {
             logger.info(e.toString());
         }

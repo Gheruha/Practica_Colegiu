@@ -53,6 +53,10 @@
     -fx-background-color: #3b82f6;
 }
 
+#listViewClienti2 .list-cell:focused {
+    -fx-background-color: #1e40af;
+}
+
 .list-view .scroll-bar {
     -fx-color: #18181b;
 }
