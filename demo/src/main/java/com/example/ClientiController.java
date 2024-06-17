@@ -27,7 +27,8 @@ public class ClientiController implements Initializable {
         if (numeClient.getText().trim().isEmpty() || prenumeClient.getText().trim().isEmpty()
                 || idnpClient.getText().trim().isEmpty()
                 || orasClient.getText().trim().isEmpty() || telefonClient.getText().trim().isEmpty()) {
-            showAlert("Eroare Validare", "Te rog sa umpli toate campurile.");
+            showAlert("Eroare Validare", "Te rog sa completezi toate campurile.");
+            validation = false;
         } else {
             String numeStr = numeClient.getText();
             String prenumeStr = prenumeClient.getText();

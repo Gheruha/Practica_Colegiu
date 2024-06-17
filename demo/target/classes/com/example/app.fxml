@@ -13,7 +13,7 @@
    <content>
       <BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1500.0" style="-fx-background-color: #18181b;">
          <left>
-            <Pane prefHeight="900.0" prefWidth="300.0" style="-fx-background-color: #27272a;" BorderPane.alignment="CENTER">
+            <Pane fx:id="Menu" prefHeight="900.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="filialeBtn" layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#goToFiliale" prefHeight="50.0" prefWidth="280.0" text="Filiale" textFill="WHITE">
                      <font>
@@ -26,11 +26,6 @@
                      </font>
                   </Button>
                   <Button fx:id="clientiBtn" layoutX="10.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToClienti" prefHeight="50.0" prefWidth="280.0" text="Clienti" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="infoBtn" layoutX="10.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToInfo" prefHeight="50.0" prefWidth="280.0" text="Informatii" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

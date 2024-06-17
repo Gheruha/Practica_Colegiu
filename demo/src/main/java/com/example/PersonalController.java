@@ -34,7 +34,7 @@ public class PersonalController implements Initializable {
                 || idnp.getText().trim().isEmpty()
                 || oras.getText().trim().isEmpty() || idFiliala.getText().trim().isEmpty()
                 || telefon.getText().trim().isEmpty()) {
-            showAlert("Eroare Validare", "Te rog sa umpli toate campurile.");
+            showAlert("Eroare Validare", "Te rog sa completezi toate campurile.");
         } else {
             String numeStr = nume.getText();
             String prenumeStr = prenume.getText();

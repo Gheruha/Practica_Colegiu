@@ -8,7 +8,7 @@
 }
 
 .button {
-    -fx-background-color: #18181b;
+    -fx-background-color: #222226;
 }
 
 .button:hover {
@@ -24,15 +24,51 @@
 }
 
 #deletePersonalBtn {
-    -fx-background-color: #ef4444
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
 }
 
 #deletePersonalBtn:hover {
-    -fx-background-color: #f87171
+    -fx-background-color: #f87171;
 }
 
+/* Pane for contracte*/
+.rounded-pane {
+    -fx-background-color: #27272a;
+    -fx-padding: 40px;
+    -fx-border-color: #52525b;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+#formContract {
+    -fx-background-color: #27272a;
+    -fx-border-color: #52525b;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+.labelContracte {
+    -fx-font-size: 18px;
+    -fx-padding-top: 30px;
+    -fx-text-fill: white;
+}
+
+.labelContracteTitle {
+    -fx-font-size: 28px;
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+}
+
+/* Pane for contracte*/
 
 /* Buttons */
+
+#Menu {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-background-radius: 10;
+}
 
 /* List View */
 .list-view .list-cell:even {
@@ -41,7 +77,9 @@
 }
 
 .list-view {
-    -fx-font-size: 18px
+    -fx-font-size: 18px;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
 }
 
 .list-view .list-cell:odd {

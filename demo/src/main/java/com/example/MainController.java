@@ -22,6 +22,7 @@ public class MainController {
         root = FXMLLoader.load(getClass().getResource("app.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.setFill(null); // Set the scene to be transparent
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         stage.setScene(scene);
         stage.show();

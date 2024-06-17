@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: #18181b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ClientiController">
    <children>
       <Label layoutX="35.0" layoutY="140.0" text="Clienti " textFill="WHITE">
@@ -38,7 +39,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="prenumeClient" layoutX="70.0" layoutY="130.0" prefWidth="300.0"  promptText="exemplu. Paul">
+                        <TextField fx:id="prenumeClient" layoutX="70.0" layoutY="130.0" prefWidth="300.0" promptText="exemplu. Paul">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -78,7 +79,8 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                     </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
                </center>
             </BorderPane>
          </items>

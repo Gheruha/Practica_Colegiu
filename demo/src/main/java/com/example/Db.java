@@ -15,6 +15,7 @@ public class Db {
     private Logger logger = Logger.getLogger(this.getClass().getName());
     List<Personal> personal = new ArrayList<>();
     List<Clienti> clienti = new ArrayList<>();
+    List<Contracte> contracte = new ArrayList<>();
 
     // Getting the connection with the Sqlite
     public void getConnection() {
@@ -36,7 +37,7 @@ public class Db {
     }
 
     public void createTable() {
-        String query = "insert into contracte(tip_contract , client , personal , filiala , data_begin , data_end) values ('Asigurarea imobilelor' ,'Corinna Brown' , 'Gheruha Maxim' , 1 , '2024-04-02' , '2024-06-02')";
+        String query = "alter table contracte add column id_client integer";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.executeUpdate();
@@ -45,7 +46,7 @@ public class Db {
         }
     }
 
-    // Insert data in the personal table
+    // Insert data in the table
     public void insertData(String query, Object... parameters) {
         getConnection();
 
@@ -54,14 +55,14 @@ public class Db {
                 statement.setObject(i + 1, parameters[i]);
             }
             statement.executeUpdate();
-            logger.info("Data inserted in personal table ✅");
+            logger.info("Data inserted ✅");
 
         } catch (SQLException e) {
             logger.info(e.toString());
         }
     }
 
-    // Inserting Data in the existing tables
+    // Deleting data
     public void deleteData(String query, int id) {
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -142,8 +143,35 @@ public class Db {
         } catch (SQLException e) {
             logger.info(e.toString());
         }
-
         return clienti;
+    }
+
+    public List<Contracte> readDataContracte() {
+        getConnection();
+        String query = "select * from contracte";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+                ResultSet result = statement.executeQuery()) {
+            contracte.clear();
+            while (result.next()) {
+                int id = result.getInt("id");
+                String tipContract = result.getString("tip_contract");
+                String client = result.getString("client");
+                String personal = result.getString("personal");
+                int filiala = result.getInt("filiala");
+                String dataBegin = result.getString("data_begin");
+                String dataEnd = result.getString("data_end");
+                double plata = result.getDouble("plata");
+                int idPersonal = result.getInt("id_personal");
+                int idClient = result.getInt("id_client");
+
+                contracte.add(new Contracte(id, tipContract, client, personal, filiala, dataBegin, dataEnd, plata,
+                        idPersonal, idClient));
+
+            }
+        } catch (SQLException e) {
+            logger.info(e.toString());
+        }
+        return contracte;
     }
 
 }
