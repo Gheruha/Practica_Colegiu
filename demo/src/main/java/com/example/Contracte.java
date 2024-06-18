@@ -103,6 +103,6 @@ public class Contracte {
     public String toString() {
         return "- Client deservit: " + client + "\n- Personal: " + personal + "\n- ID filiala: " + filiala
                 + "\n- Data inscrierii: " + dataBegin + "\n- Data incheierii: " + dataEnd + "\n- Plata contract: "
-                + plata + " lei";
+                + plata + " lei" + "\n- Plata pentru " + personal + ": " + (plata * 0.10) + " lei";
     }
 }

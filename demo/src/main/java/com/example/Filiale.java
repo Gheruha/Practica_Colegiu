@@ -47,6 +47,6 @@ public class Filiale {
 
     // ToString
     public String toString() {
-        return "ID: " + id + ",    Nume: " + nume + ",    Adresa: " + adresa + ",    Telefon: " + telefon;
+        return "ID: " + id + ",    Nume: " + nume + "\n- Adresa: " + adresa + ",    Telefon: " + telefon;
     }
 }
